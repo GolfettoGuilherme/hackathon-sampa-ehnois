@@ -7,14 +7,15 @@ var dadosParaLinha = [];
 
 $(document).ready(function () {    
     initMap();
-    adicionarPino(marcoZero);
-    adicionarPino(proximoPonto);
-    desenharLinha(dadosParaLinha);
+    // adicionarPino(marcoZero);
+    // adicionarPino(proximoPonto);
+    // desenharLinha(dadosParaLinha);
 
     $(".botao-buscar").click(function(){
         let nomeLinha = $("#buscaLinha").val();
         let dataMin = $("#dataInicio").val();
         let dataMax = $("#dataFinal").val();
+        limparMapa();
         getInfoLinha(nomeLinha,dataMin,dataMax);
     });
 });
@@ -22,9 +23,10 @@ $(document).ready(function () {
 function initMap() {
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 13,
-        center: {lat: -23.5506893, lng: -46.6340078}
+        center: {lat: -23.596720, lng: -46.672759}
     });
 }
+
 
 function adicionarPino(posicao){
     var marker = new google.maps.Marker({
@@ -76,10 +78,8 @@ function limparMapa(){
             let linha = linhas[i];
             linha.setMap(null);
         }
-    }
-
-    if(dadosParaLinha !== null && dadosParaLinha > 0){
-        dadosParaLinha = [];
-    }
+    }    
+    dadosParaLinha = [];
+    
 }
 

@@ -4,6 +4,8 @@
     <title>Hackathon dos Lindos</title>
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900&display=swap" rel="stylesheet">
     <style>
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
@@ -71,6 +73,7 @@
 
         .form-pesquisa {
             margin: 10px auto;
+            border-radius: 25px;
         }
 
         .busca-linha, .busca-regiao, .busca-empresa {
@@ -79,13 +82,13 @@
 
         #buscaLinha, #buscaRegiao, #buscaEmpresa {
             width: 360px;
-            height: 30px;
+            height: 40px;
             padding: 5px;
             border: 1px solid #efefef;
         }
 
         .input-datas {
-            height: 30px;
+            height: 48px;
             padding: 5px;
             border-style: none;
             border: 1px solid #efefef;
@@ -101,8 +104,35 @@
         .active {
             color: #ff3d00;
         }
+        .botao-buscar{
+            color: #fff;
+            background-color: #ff3d00;
+            border-color: #424242;
+            margin-bottom: 30px;
+        }
+        .botao-buscar:hover {
+            color: #424242;
+            background-color: #fff;
+            border-color: #ff3d00;
+        }
+        label{
+            margin-bottom: 0;
+        }
+        .negrito{
+            font-weight: 900;
+            color: #ff3d00;
+            font-size: 20px;
+        }
+        .negritinho{
+            font-weight: 700;
+        }
+        .font-ng{
+            font-size: 18px;
+        }
+        .margin-bot{
+            margin-bottom: 22px;
+        }
     </style>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
       
@@ -111,26 +141,27 @@
             <div id="bloco-pai-retorno" style="position: absolute; top: 100px;left:100px;width: 400px;">
                  
                 <div class="form-pesquisa" style="background:white; padding: 2em">
-                    <div class="form-row">
+                    <div class="form-row margin-bot">
                         <div class="col busca-linha">
                             <label for="buscaLinha">Busca por Linhas</label>
-                            <input type="text" id="buscaLinha" style="width:100%" value="101210">
+                            <input type="text" id="buscaLinha" style="width:100%" value="5300-10">
                         </div>
                     </div>
                     <div class="form-row">
-                        <div class="col-lg-6"><label for="dataInicio">Data Início</label>
+                        <div class="col-lg-6"><label class="label-data" for="dataInicio">Data Início</label>
                             <input class="input-datas" type="date" id="dataInicio" style="width:100%" value="2018-02-10"></div>
-                        <div class="col-lg-6"><label for="dataFinal">Data Final</label>
+                        <div class="col-lg-6"><label class="label-data" for="dataFinal">Data Final</label>
                             <input class="input-datas" type="date" id="dataFinal" style="width:100%" value="2018-02-11"></div>
                     </div>
-                    <button class="btn btn-primary botao-buscar">Buscar</button>
+                    <button class="btn botao-buscar">Buscar</button>
 
                     <div id="bloco-retorno" style="display:none">
-                        <p>Linha: <span id="nomeLinha"></span></p>
-                        <p>Média Passageiros: <span id="mediaPassageiros"></span></p>
-                        <p>Média Passageiros Pagantes: <span id="mediaPagantes"></span></p>
-                        <p>Média Estudantes Pagantes: <span id="mediaEstudantesPagantes"></span></p>
-                        <p>Média Gratuidade: <span id="mediaGratis"></span></p>
+                        <p><span id="nomeLinha"></span></p>
+                        <p class="font-ng">Média por dia:</p>
+                        <p><b>Passageiros Pagantes: </b><span id="mediaPagantes"></span></p>
+                        <p><b>Estudantes Pagantes: </b><span id="mediaEstudantesPagantes"></span></p>
+                        <p><b class="negritinho">Gratuidades: </b><span id="mediaGratis"></span></p>
+                        <p><b class="negrito">Total Passageiros: <span class="negrito" id="mediaPassageiros"></span></p></b>
                     </div>
                 
                 </div>
