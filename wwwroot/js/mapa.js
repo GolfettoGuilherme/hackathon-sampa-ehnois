@@ -18,6 +18,14 @@ $(document).ready(function () {
         limparMapa();
         getInfoLinha(nomeLinha,dataMin,dataMax);
     });
+
+    $("#btn-extrair").click(function(){
+        let nomeLinha = $("#buscaLinha").val();
+        let dataMin = $("#dataInicio").val();
+        let dataMax = $("#dataFinal").val();
+
+        extrair(nomeLinha,dataMin,dataMax);
+    });
 });
 
 function initMap() {

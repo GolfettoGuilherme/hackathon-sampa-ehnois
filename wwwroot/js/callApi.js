@@ -40,4 +40,6 @@ function getInfoLinha(idLinha,dataInicio,dataFim){
         }
     });
 }
-
+function extrair(idLinha,dataInicio,dataFim){
+    window.open(urlApi + "/hack/Extracao/" + idLinha.replace("-","") + "/" + dataInicio + "/" + dataFim, "_blank");
+}
