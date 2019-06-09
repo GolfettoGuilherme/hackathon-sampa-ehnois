@@ -3,16 +3,20 @@ var markers = [];
 var linhas = [];
 var marcoZero = {lat: -23.5504652, lng: -46.6335146};
 var proximoPonto = {lat: -23.549422, lng: -46.637629};
-var dadosParaLinha = [
-    {lat: -23.5504652, lng: -46.6335146},
-    {lat: -23.549422, lng: -46.637629},
-];
+var dadosParaLinha = [];
 
 $(document).ready(function () {    
     initMap();
     adicionarPino(marcoZero);
     adicionarPino(proximoPonto);
     desenharLinha(dadosParaLinha);
+
+    $(".botao-buscar").click(function(){
+        let nomeLinha = $("#buscaLinha").val().replace("-","");
+        let dataMin = $("#dataInicio").val();
+        let dataMax = $("#dataFinal").val();
+        getInfoLinha(nomeLinha,dataMin,dataMax);
+    });
 });
 
 function initMap() {
@@ -38,10 +42,11 @@ function adicionarPino(posicao){
 }
 
 function adicionarLinha(posicoes,corDaLinha){
+    console.log(posicoes);
     posicoes.forEach(function(i){
         adicionarPino(i);
     });
-    desenharLinha(posicoes,'#FF0000');
+    desenharLinha(posicoes,corDaLinha);
 }
 
 function desenharLinha(dadosLinha, corDaLinha){
@@ -71,6 +76,10 @@ function limparMapa(){
             let linha = linhas[i];
             linha.setMap(null);
         }
+    }
+
+    if(dadosParaLinha !== null && dadosParaLinha > 0){
+        dadosParaLinha = [];
     }
 }
 

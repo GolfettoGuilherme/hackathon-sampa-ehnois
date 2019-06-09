@@ -15,29 +15,29 @@ namespace site.Controllers
             return View();
         }
 
-        public IActionResult About()
+        [HttpGet("GetLinha/{idLinha}")]
+        public JsonResult GetLinha(string idLinha)
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            var contexto = new ContextoSql();
+            var dados = contexto.GetLinha(idLinha);
+            return new JsonResult(dados);
         }
 
-        public IActionResult Contact()
+        [HttpGet("GetDadosLinha/{texto}")]
+        public JsonResult GetDadosLinha(string texto)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var contexto = new ContextoSql();
+            var dados = contexto.GetDadosLinha(texto);
+            return new JsonResult(dados);
         }
 
-        public IActionResult Privacy()
+        [HttpGet("spSelBuscaLinha/{idlinha}/{dataInicio}/{dataFim}")]
+        public JsonResult spSelBuscaLinha(string idlinha, DateTime dataInicio, DateTime dataFim)
         {
-            return View();
+            var contexto = new ContextoSql();
+            var dados = contexto.spSelBuscaLinha(idlinha,dataInicio,dataFim);
+            return new JsonResult(dados);
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
