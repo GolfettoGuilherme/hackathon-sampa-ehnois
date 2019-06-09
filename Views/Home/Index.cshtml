@@ -108,7 +108,7 @@
       
       <div style="position: relative;">
             <div id="map" style="width: 100%; height: 800px;"></div> 
-            <div style="position: absolute; top: 100px;left:100px;width: 400px;">
+            <div id="bloco-pai-retorno" style="position: absolute; top: 100px;left:100px;width: 400px;">
                  
                 <div class="form-pesquisa" style="background:white; padding: 2em">
                     <div class="form-row">
@@ -124,7 +124,18 @@
                             <input class="input-datas" type="date" id="dataFinal" style="width:100%" value="2018-02-11"></div>
                     </div>
                     <button class="btn btn-primary botao-buscar">Buscar</button>
+
+                    <div id="bloco-retorno" style="display:none">
+                        <p>Linha: <span id="nomeLinha"></span></p>
+                        <p>Média Passageiros: <span id="mediaPassageiros"></span></p>
+                        <p>Média Passageiros Pagantes: <span id="mediaPagantes"></span></p>
+                        <p>Média Estudantes Pagantes: <span id="mediaEstudantesPagantes"></span></p>
+                        <p>Média Gratuidade: <span id="mediaGratis"></span></p>
+                    </div>
+                
                 </div>
+
+                
                     
             </div>
        </div>

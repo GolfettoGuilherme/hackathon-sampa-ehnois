@@ -12,7 +12,7 @@ $(document).ready(function () {
     desenharLinha(dadosParaLinha);
 
     $(".botao-buscar").click(function(){
-        let nomeLinha = $("#buscaLinha").val().replace("-","");
+        let nomeLinha = $("#buscaLinha").val();
         let dataMin = $("#dataInicio").val();
         let dataMax = $("#dataFinal").val();
         getInfoLinha(nomeLinha,dataMin,dataMax);
